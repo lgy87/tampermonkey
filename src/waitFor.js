@@ -17,5 +17,5 @@ const waitFor = (selectors, interval = 100, maxTry = 30) => new Promise((resolve
   f()
 })
 
-globalThis.rapeflower = globalThis.rapeflower || {}
+globalThis.rapeflower ??= {}
 globalThis.rapeflower.waitFor = waitFor
