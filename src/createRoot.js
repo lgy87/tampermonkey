@@ -1,6 +1,6 @@
-const defaultId = "react-root-container__"
-
-const createRoot = (tag = "div", id = defaultId) => {
+globalThis.rapeflower ??= {}
+rapeflower.defaultId = "react-root-container__"
+globalThis.rapeflower.createRoot = (tag = "div", id = rapeflower.defaultId) => {
   const exists = document.getElementById(id)
   if (exists) return exists
 
@@ -9,6 +9,3 @@ const createRoot = (tag = "div", id = defaultId) => {
   document.body.appendChild(element)
   return element
 }
-
-globalThis.rapeflower ??= {}
-globalThis.rapeflower.createRoot = createRoot

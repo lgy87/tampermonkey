@@ -1,4 +1,5 @@
-const waitFor = (selectors, interval = 100, maxTry = 30) => new Promise((resolve, reject) => {
+globalThis.rapeflower ??= {}
+globalThis.rapeflower.waitFor = (selectors, interval = 100, maxTry = 30) => new Promise((resolve, reject) => {
   let count = 0
   const isArray = Array.isArray(selectors)
   const array = isArray ? [selectors] : selectors
@@ -17,5 +18,3 @@ const waitFor = (selectors, interval = 100, maxTry = 30) => new Promise((resolve
   f()
 })
 
-globalThis.rapeflower ??= {}
-globalThis.rapeflower.waitFor = waitFor
