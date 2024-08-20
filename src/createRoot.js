@@ -10,7 +10,8 @@ rapeflower.createRoot = (() => {
     })
     return element
   }
-  return (tag = "div", id = rapeflower.defaultId, props = {}) => {
+
+  return (props = {}, id = rapeflower.defaultId, tag = "div") => {
     const exists = document.getElementById(id)
     if (exists) return exists
 
