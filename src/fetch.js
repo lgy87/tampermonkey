@@ -1,7 +1,8 @@
-function fetch({
+globalThis.rapeflower ??= {}
+globalThis.rapeflower.fetch = ({
   url,
   method = "GET",
-}) {
+}) => {
   return new Promise((resolve, reject) => {
     GM_xmlhttpRequest({
       url,
