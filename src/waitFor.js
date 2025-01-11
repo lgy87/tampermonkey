@@ -2,7 +2,7 @@ globalThis.rapeflower ??= {}
 globalThis.rapeflower.waitFor = (selectors, interval = 100, maxTry = 30) => new Promise((resolve, reject) => {
   let count = 0
   const isArray = Array.isArray(selectors)
-  const array = isArray ? [selectors] : selectors
+  const array = isArray ? selectors : [selectors]
   const f = () => {
     const $elements = array.map(selector => $(selector))
     if ($elements.every($element => $element.length > 0)) {
