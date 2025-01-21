@@ -1,20 +1,21 @@
 globalThis.rapeflower ??= {}
-globalThis.rapeflower.waitFor = (selectors, interval = 100, maxTry = 30) => new Promise((resolve, reject) => {
+globalThis.rapeflower.waitFor = (selector, {
+  interval = 50,
+  maxTry = 100,
+  predicate = $element => $element?.length > 0,
+} = {}) => new Promise((resolve, reject) => {
   let count = 0
-  const isArray = Array.isArray(selectors)
-  const array = isArray ? selectors : [selectors]
   const f = () => {
-    const $elements = array.map(selector => $(selector))
-    if ($elements.every($element => $element.length > 0)) {
-      return resolve(isArray ? $elements : $elements[0])
-    }
+    const $element = $(selector)
+    if (predicate($element)) return resolve($element)
 
     if (count++ > maxTry) {
-      console.log("can't find: ", selectors)
+      console.log("can't find: ", selector)
       return reject()
     }
     setTimeout(f, interval)
   }
+
   f()
 })
 
