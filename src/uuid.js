@@ -1,5 +1,5 @@
 globalThis.rapeflower ??= {};
-globalThis.rapeflower.uuid = {
+rapeflower.uuid = {
   value(key) {
     const { local } = rapeflower || {}
     const uuidKey = "rapeflower-uuid"
@@ -12,7 +12,7 @@ globalThis.rapeflower.uuid = {
     local.save(uuidKey, cache)
     return cache[key]
   },
-};
+}
 
 function isNil(value) {
   return value == null

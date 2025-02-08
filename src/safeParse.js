@@ -1,5 +1,5 @@
-globalThis.rapeflower ??= {};
-globalThis.rapeflower.safeParse = (json, defaults) => {
+globalThis.rapeflower ??= {}
+rapeflower.safeParse = (json, defaults) => {
   try {
     if (isNil(json)) return defaults;
     return JSON.parse(json || "null");
@@ -7,8 +7,8 @@ globalThis.rapeflower.safeParse = (json, defaults) => {
     console.error(e?.message || e);
     return defaults;
   }
-};
+}
 
 function isNil(value) {
-  return value == null;
+  return value == null
 }

@@ -1,5 +1,5 @@
 globalThis.rapeflower ??= {};
-globalThis.rapeflower.local = {
+rapeflower.local = {
   read(key, defaults) {
     return rapeflower.safeParse(localStorage.getItem(key), defaults);
   },

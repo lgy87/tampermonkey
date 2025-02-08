@@ -1,5 +1,5 @@
 globalThis.rapeflower ??= {}
-globalThis.rapeflower.fetch = ({
+rapeflower.fetch = ({
   url,
   method = "GET",
 }) => {
