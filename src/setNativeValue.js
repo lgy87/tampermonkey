@@ -1,5 +1,6 @@
 globalThis.rapeflower ??= {}
-rapeflower.setNativeValue = (element, value, events) => {
+rapeflower.setNativeValue = (el, value, events) => {
+  const element = isJQ(el) ? el.get(0) : el
   const { set } = Object.getOwnPropertyDescriptor(element, "value") || {}
   const prototype = Object.getPrototypeOf(element)
   const { set: prototypeSet } =
@@ -19,4 +20,9 @@ rapeflower.setNativeValue = (element, value, events) => {
 
 const ensureArray = args => {
   return Array.isArray(args) ? args : [args]
+}
+
+const isJQ = value => {
+  if (value instanceof Element) return false
+  return !!value.jquery
 }
