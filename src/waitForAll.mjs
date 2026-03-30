@@ -1,7 +1,7 @@
 import { emptyObject } from "./emptyObject.mjs"
-import waitFor from "./waitFor.mjs"
+import { waitFor } from "./waitFor.mjs"
 
-export default (
+export function waitForAll(
   selectors,
   {
     interval = 50,
@@ -9,7 +9,7 @@ export default (
     root = document.body,
     predicate = $element => $element?.length > 0,
   } = emptyObject,
-) => {
+) {
   return Promise.all(
     selectors.map(selector =>
       waitFor(selector, { interval, maxTry, root, predicate }),

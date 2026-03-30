@@ -1,7 +1,7 @@
-import emptyObject from "./emptyObject.mjs"
+import { emptyObject } from "./emptyObject.mjs"
 import $ from "./jquery.mjs"
 
-export default (
+export function waitFor(
   selector,
   {
     interval = 50,
@@ -9,8 +9,8 @@ export default (
     root = document.body,
     predicate = $element => $element?.length > 0,
   } = emptyObject,
-) =>
-  new Promise((resolve, reject) => {
+) {
+  return new Promise((resolve, reject) => {
     const $root = $(root)
     let count = 0
     const f = () => {
@@ -26,3 +26,4 @@ export default (
 
     f()
   })
+}

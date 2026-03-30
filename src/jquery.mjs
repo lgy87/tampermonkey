@@ -1,4 +1,1 @@
-import { $, jQuery } from "https://esm.sh/jquery"
-
-export default $
-export { $, jQuery }
+export * from "https://esm.sh/jquery"

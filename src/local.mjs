@@ -1,6 +1,6 @@
-import safeParse from "./safeParse.mjs"
+import { safeParse } from "./safeParse.mjs"
 
-export default {
+export const local = {
   read(key, defaults) {
     return safeParse(localStorage.getItem(key), defaults)
   },

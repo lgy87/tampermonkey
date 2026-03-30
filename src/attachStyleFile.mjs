@@ -1,4 +1,4 @@
-export default function attachStyleFile(url) {
+export function attachStyleFile(url) {
   const link = document.createElement("link")
   link.rel = "stylesheet"
   link.href = url

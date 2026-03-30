@@ -1,6 +1,6 @@
-import ensureArray from "./ensureArray.mjs"
+import { ensureArray } from "./ensureArray.mjs"
 
-export default (el, value, events) => {
+export function setNativeValue(el, value, events) {
   const element = isJQ(el) ? el.get(0) : el
   const { set } = Object.getOwnPropertyDescriptor(element, "value") || {}
   const prototype = Object.getPrototypeOf(element)

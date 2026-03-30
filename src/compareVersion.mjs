@@ -1,4 +1,4 @@
-export default function compareVersion(v1, v2) {
+export function compareVersion(v1, v2) {
   // 将版本号拆分为数字数组
   const parts1 = v1.split(".").map(Number)
   const parts2 = v2.split(".").map(Number)

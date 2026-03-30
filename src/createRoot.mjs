@@ -10,7 +10,7 @@ const addStyleTo = (element, style) => {
   return element
 }
 
-export default (props = {}, id = defaultId, tag = "div") => {
+export function createRoot(props = {}, id = defaultId, tag = "div") {
   const exists = document.getElementById(id)
   if (exists) return exists
 

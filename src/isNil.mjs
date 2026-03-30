@@ -1,3 +1,3 @@
-export default function isNil(value) {
+export function isNil(value) {
   return value == null
 }

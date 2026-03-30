@@ -1,1 +1,3 @@
-export default value => (Array.isArray(value) ? value : [value])
+export function ensureArray(value) {
+  return Array.isArray(value) ? value : [value]
+}

@@ -1,4 +1,4 @@
-export default ({ url, method = "GET" }) => {
+export function fetch({ url, method = "GET" }) {
   return new Promise((resolve, reject) => {
     GM_xmlhttpRequest({
       url,

@@ -1,5 +1,5 @@
 let inited = false
-export default function onPathChange(fn) {
+export function onPathChange(fn) {
   if (inited) return
   window.addEventListener("popstate", () => fn(location.pathname))
 
