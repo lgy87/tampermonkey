@@ -1,4 +1,5 @@
 import emptyObject from "./emptyObject.mjs"
+import $ from "./jquery.mjs"
 
 export default (
   selector,
