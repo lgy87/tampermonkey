@@ -1,5 +1,6 @@
-globalThis.rapeflower ??= {}
-rapeflower.setNativeValue = (el, value, events) => {
+import ensureArray from "./ensureArray.mjs"
+
+export default (el, value, events) => {
   const element = isJQ(el) ? el.get(0) : el
   const { set } = Object.getOwnPropertyDescriptor(element, "value") || {}
   const prototype = Object.getPrototypeOf(element)
@@ -16,10 +17,6 @@ rapeflower.setNativeValue = (el, value, events) => {
   eventsArray.forEach(event => {
     element.dispatchEvent(new Event(event, { bubbles: true }))
   })
-}
-
-const ensureArray = args => {
-  return Array.isArray(args) ? args : [args]
 }
 
 const isJQ = value => {

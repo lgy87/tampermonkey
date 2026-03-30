@@ -1,8 +1,4 @@
-globalThis.rapeflower ??= {}
-rapeflower.fetch = ({
-  url,
-  method = "GET",
-}) => {
+export default ({ url, method = "GET" }) => {
   return new Promise((resolve, reject) => {
     GM_xmlhttpRequest({
       url,
@@ -13,13 +9,11 @@ rapeflower.fetch = ({
         }
         reject(response.responseText)
       },
-      onerror(error) {
-        reject(error)
-      }
+      onerror: reject,
     })
   })
+}
 
-  function success(response) {
-    return response.status == 200
-  }
+function success(response) {
+  return response.status == 200
 }

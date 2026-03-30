@@ -1,7 +1,5 @@
-globalThis.rapeflower ??= {}
-
 let inited = false
-rapeflower.onPathChange = fn => {
+export default function onPathChange(fn) {
   if (inited) return
   window.addEventListener("popstate", () => fn(location.pathname))
 
