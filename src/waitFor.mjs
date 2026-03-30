@@ -1,5 +1,5 @@
 import { emptyObject } from "./emptyObject.mjs"
-import $ from "./jquery.mjs"
+import { $ } from "./jquery.mjs"
 
 export function waitFor(
   selector,
