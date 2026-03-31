@@ -31,4 +31,4 @@ const rapeflower = {
 }
 
 rapeflower.init()
-globalThis.addImportMap = rapeflower.add
+globalThis.addImportMap = rapeflower.add.bind(rapeflower)
