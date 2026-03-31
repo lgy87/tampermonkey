@@ -4,6 +4,7 @@ const rapeflower = {
     map.type = "importmap"
     map.textContent = JSON.stringify({
       imports: {
+        "@esm/": "https://esm.sh/",
         [`${name}/`]: `https://cdn.jsdelivr.net/gh/lgy87/tampermonkey@${tag}/src/`,
       },
     })
