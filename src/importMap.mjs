@@ -1,32 +1,27 @@
 const rapeflower = {
-  cached: {
+  defaults: {
     "@esm/": "https://esm.sh/",
     "@lgy87/": "https://cdn.jsdelivr.net/gh/lgy87/tampermonkey@esm/src/",
   },
-  cache(key, url) {
-    if (this.cached[key]) return
-
-    this.cached[key] = url
+  create() {
+    const script = document.createElement("script")
+    script.type = "importmap"
+    return script
   },
-  init() {
-    const map = document.createElement("script")
-    map.type = "importmap"
-    map.textContent = JSON.stringify({ imports: this.cached })
-    document.head.appendChild(map)
+  appendToHead(imports) {
+    const script = this.create()
+    script.textContent = JSON.stringify({ imports })
+    document.head.appendChild(script)
   },
   add(name, tag) {
     if (!name || !tag) return
 
     const key = `${name}/`
     const url = `https://cdn.jsdelivr.net/gh/lgy87/tampermonkey@${tag}/src/`
-    this.cache(key, url)
-
-    const map = document.createElement("script")
-    map.type = "importmap"
-    map.textContent = JSON.stringify({
-      imports: { [key]: url },
-    })
-    document.head.appendChild(map)
+    this.appendToHead({ [key]: url })
+  },
+  init() {
+    this.appendToHead(this.defaults)
   },
 }
 
